@@ -20,16 +20,13 @@ pipeline {
                 '''
             }
         }
-    }
-
-    stage('Test') {
+        stage('Test') {
         
-        steps {
-            sh '''
-                npm run test
-            '''
+            steps {
+                sh '''
+                    npm run test
+                '''
+            }
         }
     }
-
-    
 }
