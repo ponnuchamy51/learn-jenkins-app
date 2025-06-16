@@ -17,7 +17,7 @@ function App() {
         <p>Ponnuchamy Thangavel !!!!</p>
       </header>
       <p>
-          Application version: 1
+          Application version: 2
       </p>
     </div>
   );
