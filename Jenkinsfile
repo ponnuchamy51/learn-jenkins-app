@@ -5,6 +5,10 @@ pipeline {
             reuseNode true
         }
     }
+
+    environment {
+
+    }
     stages {
         stage('Build') {
             
@@ -28,6 +32,14 @@ pipeline {
                 '''
             }
         }
+        stage('Deploy' {
+            steps {
+                sh '''
+                    npm install netlify-cli
+                    node_modules/netlify --version
+                '''
+            }
+        })
     }
     post {
         always {
