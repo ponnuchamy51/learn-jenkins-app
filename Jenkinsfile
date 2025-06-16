@@ -38,6 +38,7 @@ pipeline {
                     npm install netlify-cli
                     ./node_modules/.bin/netlify --version
                     echo $NETLIFY_AUTH_TOKEN
+                    netlify deploy --dir=build --prod
                 '''
             }
         }
