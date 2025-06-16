@@ -36,7 +36,7 @@ pipeline {
             steps {
                 sh '''
                     npm ci netlify-cli
-                    node_modules/netlify --version
+                    ./node_modules/.bin/netlify --version
                     echo $NETLIFY_AUTH_TOKEN
                 '''
             }
