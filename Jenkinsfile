@@ -40,7 +40,7 @@ pipeline {
                     echo $NETLIFY_AUTH_TOKEN
                 '''
             }
-        })
+        }
     }
     post {
         always {
