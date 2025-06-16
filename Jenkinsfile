@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        NETLIFY_AUTH_TOKEN credentails('netlify-access-token')
+        NETLIFY_AUTH_TOKEN = credentials('netlify-access-token')
     }
     stages {
         stage('Build') {
