@@ -32,7 +32,7 @@ pipeline {
                 '''
             }
         }
-        stage('Deploy' {
+        stage('Deploy') {
             steps {
                 sh '''
                     npm install netlify-cli
