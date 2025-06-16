@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-
+        NETLIFY_AUTH_TOKEN credentails('netlify-access-token')
     }
     stages {
         stage('Build') {
@@ -37,6 +37,7 @@ pipeline {
                 sh '''
                     npm install netlify-cli
                     node_modules/netlify --version
+                    echo $NETLIFY_AUTH_TOKEN
                 '''
             }
         })
