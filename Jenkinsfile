@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    npm ci netlify-cli
+                    npm install netlify-cli
                     ./node_modules/.bin/netlify --version
                     echo $NETLIFY_AUTH_TOKEN
                 '''
