@@ -25,6 +25,19 @@ pipeline {
                 '''
             }
         }
+
+        stage {
+            agent {
+                docker {
+                    image 'amazon/aws-cli'
+                }
+            }
+            withCredentials([gitUsernamePassword(credentialsId: 'jenkin-aws-cli', gitToolName: 'Default')]) {
+               sh '''
+                aws s3 --version
+               '''
+            }
+        }
         stage('Test') {
         
             steps {
