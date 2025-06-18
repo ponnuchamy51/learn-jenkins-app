@@ -11,13 +11,23 @@ pipeline {
         NETLIFY_AUTH_TOKEN = credentials('netlify-access-token')
     }
     stages {
-        stage('AWS') {
-            
+         stage('AWS') {
+            agent {
+                docker {
+                    image 'amazon/aws-cli'
+                    args "--entrypoint=''"
+                }
+            }
             steps {
-                sh 'ls -la'
-               
+                withCredentials([usernamePassword(credentialsId: 'my-aws', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                    sh '''
+                        aws --version
+                        aws s3 ls
+                    '''
+                }
             }
         }
+
         stage('Build') {
             
             steps {
