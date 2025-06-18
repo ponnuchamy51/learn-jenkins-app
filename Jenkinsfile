@@ -35,7 +35,7 @@ pipeline {
             steps {
                 withCredentials([gitUsernamePassword(credentialsId: 'jenkin-aws-cli', gitToolName: 'Default')]) {
                 sh '''
-                    aws s3 --version
+                    aws s3 ls
                 '''
                 }
             }
