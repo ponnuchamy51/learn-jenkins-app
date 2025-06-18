@@ -33,11 +33,13 @@ pipeline {
                 }
             }
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'jenkin-aws-cli', gitToolName: 'Default')]) {
-                sh '''
-                    aws s3 ls
-                '''
+               withCredentials([usernamePassword(credentialsId: 'jenkin-aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                    sh '''
+                        aws s3 ls
+                    '''
                 }
+               
+             
             }
         }
         stage('Test') {
