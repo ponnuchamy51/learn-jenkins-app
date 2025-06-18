@@ -20,8 +20,8 @@ pipeline {
             }
             steps {
                 sh '''
-                        aws --version
-                    '''
+                    aws --version
+                '''
             }
         }
 
