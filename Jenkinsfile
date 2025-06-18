@@ -11,21 +11,6 @@ pipeline {
         NETLIFY_AUTH_TOKEN = credentials('netlify-access-token')
     }
     stages {
-        stage('Build') {
-            
-            steps {
-                sh '''
-                    ls -la
-                    npm --version
-                    node --version
-                    npm ci
-                    npm run build
-                    ls -la
-                
-                '''
-            }
-        }
-
         stage('AWS') {
             agent {
                 docker {
@@ -42,6 +27,22 @@ pipeline {
              
             }
         }
+        stage('Build') {
+            
+            steps {
+                sh '''
+                    ls -la
+                    npm --version
+                    node --version
+                    npm ci
+                    npm run build
+                    ls -la
+                
+                '''
+            }
+        }
+
+        
         stage('Test') {
         
             steps {
