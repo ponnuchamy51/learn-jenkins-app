@@ -20,6 +20,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo "Hello"
                     aws --version
                 '''
             }
